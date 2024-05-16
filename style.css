@@ -1,0 +1,21 @@
+
+body {
+    background-color: #ffd9d0;
+    font-family: Roboto;
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffaba5;
+    box-shadow: #ffb9af;
+}
+
+/* Footer styling */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
