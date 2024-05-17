@@ -72,7 +72,7 @@ let playGame = () => {
         
     }
     else {
-        console.log("Aww, you lost! I'm sure you'll win next time!  Good luck")
+        console.log("Aww, you lost! I'm sure you'll win next time! Good luck")
     }
     console.log("Your final score is: " + humanScore);
     console.log("Final computer's score: " + computerScore);
