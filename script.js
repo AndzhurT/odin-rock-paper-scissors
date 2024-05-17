@@ -26,8 +26,11 @@ function capitalize(text) {
 
 let playRound = (humanChoice, computerChoice) => {
     // tie
+    console.log("You chose: " + humanChoice)
+    console.log("Computer chose: " + computerChoice)
+
     if (humanChoice == computerChoice) {
-        console.log("Oooo, we have a tie! " + humanChoice + " and " + computerChoice + " are the same");
+        console.log("Oooo, we have a tie!" );
     }
     
     // human wins
@@ -43,22 +46,25 @@ let playRound = (humanChoice, computerChoice) => {
         console.log("You lose! " + humanChoice + " loses to " + computerChoice);
         computerScore += 1;
     }
-    
+
     return;
 }
 
 
 let playGame = () => {
-    let humanSelection = getHumanChoice();
-    let computerSelection = getComputerChoice();
+    let humanSelection;
+    let computerSelection;
 
     for (let i = 0; i < 5; i++) {
-        playRound(humanSelection, computerSelection)
+        console.log("Round: " + (i + 1));
+
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection)
 
         console.log("Your score: " + humanScore);
         console.log("Computer's score: " + computerScore);
+        console.log("\n");
     }
 
     if (humanScore > computerScore) {
@@ -66,7 +72,7 @@ let playGame = () => {
         
     }
     else {
-        console.log("Aww, you lost! Good luck, I'm sure you'll win next time!")
+        console.log("Aww, you lost! I'm sure you'll win next time!  Good luck")
     }
     console.log("Your final score is: " + humanScore);
     console.log("Final computer's score: " + computerScore);
