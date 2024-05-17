@@ -24,24 +24,23 @@ function capitalize(text) {
     }
 }
 
-
 let playRound = (humanChoice, computerChoice) => {
     // tie
     if (humanChoice == computerChoice) {
-        print("Oooo, we have a tie! " + humanChoice + " and " + computerChoice + " are the same");
+        console.log("Oooo, we have a tie! " + humanChoice + " and " + computerChoice + " are the same");
     }
     
     // human wins
     else if ((humanChoice == "Rock" && computerChoice == "Scissors") || 
             (humanChoice == "Paper" && computerChoice == "Rock") || 
             (humanChoice == "Scissors" && computerChoice == "Paper")) {
-                print("You win! " + humanChoice + " beats " + computerChoice);
+                console.log("You win! " + humanChoice + " beats " + computerChoice);
                 humanScore += 1;
     }
 
     // computer wins
     else {
-        print("You lose! " + humanChoice + " loses to " + computerChoice);
+        console.log("You lose! " + humanChoice + " loses to " + computerChoice);
         computerScore += 1;
     }
     
@@ -57,10 +56,20 @@ let playGame = () => {
         playRound(humanSelection, computerSelection)
         humanSelection = getHumanChoice();
         computerSelection = getComputerChoice();
+
+        console.log("Your score: " + humanScore);
+        console.log("Computer's score: " + computerScore);
     }
 
-    console.log("Your score: " + humanScore);
-    console.log("Computer's score: " + computerScore);
+    if (humanScore > computerScore) {
+        console.log("Congrats! You win against the computer.")
+        
+    }
+    else {
+        console.log("Aww, you lost! Good luck, I'm sure you'll win next time!")
+    }
+    console.log("Your final score is: " + humanScore);
+    console.log("Final computer's score: " + computerScore);
 }
 
 playGame();
