@@ -1,5 +1,14 @@
 
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
     background-color: #ffd9d0;
     font-family: Roboto;
 }
@@ -9,13 +18,46 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ffaba5;
+    color: #fc9891;
     box-shadow: #ffb9af;
+    background-color: #fcc7c3;
 }
 
 /* Footer styling */
-.footer {
+.section.footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
+    background-color: #fcc7c3;
+}
+
+
+.section.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    flex: 1 0 auto;
+}
+
+.container .buttons {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+}
+
+button {
+    font-size: 20px;
+    flex: 1 0 0; /* To make sure that btns are all the same width*/
+    padding: 20px;
+    color: #ffaba5;
+    font-weight: bold;
+}
+
+.container .text-output {
+    border: 2px solid black;
+    width: 50%;
+    height: 460px; /* 500px - 20px - 20px = 460px */
 }

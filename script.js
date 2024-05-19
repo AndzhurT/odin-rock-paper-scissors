@@ -55,17 +55,17 @@ let playGame = () => {
     let humanSelection;
     let computerSelection;
 
-    for (let i = 0; i < 5; i++) {
-        console.log("Round: " + (i + 1));
+    // for (let i = 0; i < 5; i++) {
+    //     console.log("Round: " + (i + 1));
 
-        humanSelection = getHumanChoice();
-        computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection)
+    //     humanSelection = getHumanChoice();
+    //     computerSelection = getComputerChoice();
+    //     playRound(humanSelection, computerSelection)
 
-        console.log("Your score: " + humanScore);
-        console.log("Computer's score: " + computerScore);
-        console.log("\n");
-    }
+    //     console.log("Your score: " + humanScore);
+    //     console.log("Computer's score: " + computerScore);
+    //     console.log("\n");
+    // }
 
     if (humanScore > computerScore) {
         console.log("Congrats! You win against the computer.")
@@ -78,4 +78,8 @@ let playGame = () => {
     console.log("Final computer's score: " + computerScore);
 }
 
-playGame();
+// playGame();
+
+// create elements using JS
+
+// const container = 
