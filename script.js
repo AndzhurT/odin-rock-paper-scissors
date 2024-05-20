@@ -10,28 +10,27 @@ function getComputerChoice() {
     return choices[randomChoice];
 }
 
-let playRound = (humanChoice, computerSelected = null) => {
-    computerSelected = getComputerChoice();
+let playRound = (humanChoice, computerSelected) => {
     // tie
     computerText.textContent = "Computer chose: ";
     computerChoice.textContent = computerSelected;
     computerText.appendChild(computerChoice);
 
     if (humanChoice == computerSelected) {
-        console.log("Oooo, we have a tie!" );
+        finalRoundText.textContent = "Oooo, we have a tie!";
     }
     
     // human wins
     else if ((humanChoice == "Rock" && computerSelected == "Scissors") || 
             (humanChoice == "Paper" && computerSelected == "Rock") || 
             (humanChoice == "Scissors" && computerSelected == "Paper")) {
-                console.log("You win! " + humanChoice + " beats " + computerSelected);
+                finalRoundText.textContent = "You win! " + humanChoice + " beats " + computerSelected;
                 humanScore += 1;
     }
 
     // computer wins
     else {
-        console.log("You lose! " + humanChoice + " loses to " + computerSelected);
+        finalRoundText.textContent = "You lose! " + humanChoice + " loses to " + computerSelected;
         computerScore += 1;
     }
 
@@ -40,33 +39,32 @@ let playRound = (humanChoice, computerSelected = null) => {
 
 
 let playGame = () => {
-    let humanSelection;
-    let computerSelection;
+    let humanSelection = humanChoice.textContent;
+    let computerSelection = getComputerChoice();
 
-    // for (let i = 0; i < 5; i++) {
-    //     console.log("Round: " + (i + 1));
+    playRound(humanSelection, computerSelection);
 
-    //     humanSelection = getHumanChoice();
-    //     computerSelection = getComputerChoice();
-    //     playRound(humanSelection, computerSelection)
+    console.log("Your score: " + humanScore);
+    console.log("Computer's score: " + computerScore);
 
-    //     console.log("Your score: " + humanScore);
-    //     console.log("Computer's score: " + computerScore);
-    //     console.log("\n");
-    // }
-
-    if (humanScore > computerScore) {
-        console.log("Congrats! You win against the computer.")
+    if (humanScore + computerScore == 5) {
+        if (humanScore > computerScore) {
+            finalGameText.textContent = "Congrats! You win against the computer.";
+            
+        }
+        else {
+            finalGameText.textContent = "Aww, you lost! I'm sure you'll win next time! Good luck";
+        }
         
+        finalGameText.appendChild(finalGameScore);
+        finalHumanScore.textContent = "Your final score is: " + humanScore;
+        finalComputerScore.textContent = "Final computer's score: " + computerScore;
+        finalGameScore.appendChild(finalHumanScore);
+        finalGameScore.appendChild(finalComputerScore);
     }
-    else {
-        console.log("Aww, you lost! I'm sure you'll win next time! Good luck")
-    }
-    console.log("Your final score is: " + humanScore);
-    console.log("Final computer's score: " + computerScore);
+
 }
 
-// playGame();
 
 // create elements using JS
 
@@ -81,6 +79,15 @@ const computerText = document.querySelector(".computerText");
 const computerChoice = document.createElement("span");
 computerChoice.setAttribute("style","color: #ff7d73;");
 
+// final round text
+const finalRoundText = document.querySelector(".finalRoundText");
+
+// final game text / score
+const finalGameText = document.querySelector(".finalGameText");
+const finalGameScore = document.createElement("div");
+
+const finalHumanScore = document.createElement("p");
+const finalComputerScore = document.createElement("p");
 
 // buttons
 const buttons = document.querySelectorAll("button");
@@ -93,7 +100,7 @@ function getButtonTarget(e) {
     humanChoice.textContent = e.target.textContent;
     humanText.appendChild(humanChoice);
 
-    playRound(humanChoice.textContent);
+    playGame();
 }
 
 

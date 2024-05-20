@@ -68,3 +68,15 @@ button {
     width: 50%;
     height: 460px; /* 500px - 20px - 20px = 460px */
 }
+
+div {
+    margin: 10px;
+}
+
+.finalGameText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
