@@ -10,28 +10,28 @@ function getComputerChoice() {
     return choices[randomChoice];
 }
 
-let playRound = (humanChoice, computerChoice = null) => {
-    computerChoice = getComputerChoice();
-
+let playRound = (humanChoice, computerSelected = null) => {
+    computerSelected = getComputerChoice();
     // tie
-    console.log("You chose: " + humanChoice)
-    console.log("Computer chose: " + computerChoice)
+    computerText.textContent = "Computer chose: ";
+    computerChoice.textContent = computerSelected;
+    computerText.appendChild(computerChoice);
 
-    if (humanChoice == computerChoice) {
+    if (humanChoice == computerSelected) {
         console.log("Oooo, we have a tie!" );
     }
     
     // human wins
-    else if ((humanChoice == "Rock" && computerChoice == "Scissors") || 
-            (humanChoice == "Paper" && computerChoice == "Rock") || 
-            (humanChoice == "Scissors" && computerChoice == "Paper")) {
-                console.log("You win! " + humanChoice + " beats " + computerChoice);
+    else if ((humanChoice == "Rock" && computerSelected == "Scissors") || 
+            (humanChoice == "Paper" && computerSelected == "Rock") || 
+            (humanChoice == "Scissors" && computerSelected == "Paper")) {
+                console.log("You win! " + humanChoice + " beats " + computerSelected);
                 humanScore += 1;
     }
 
     // computer wins
     else {
-        console.log("You lose! " + humanChoice + " loses to " + computerChoice);
+        console.log("You lose! " + humanChoice + " loses to " + computerSelected);
         computerScore += 1;
     }
 
@@ -71,20 +71,27 @@ let playGame = () => {
 // create elements using JS
 
 
-// text
-const textOutput = document.querySelector(".text");
+// human text
+const humanText = document.querySelector(".humanText");
+const humanChoice = document.createElement("span");
+humanChoice.setAttribute("style","color: #ff7d73;");
+
+// computer text
+const computerText = document.querySelector(".computerText");
+const computerChoice = document.createElement("span");
+computerChoice.setAttribute("style","color: #ff7d73;");
+
 
 // buttons
 const buttons = document.querySelectorAll("button");
 
-const humanChoice = document.createElement("span");
-humanChoice.setAttribute("style","color: #ff7d73;");
+
 
 function getButtonTarget(e) {
     console.log(e.target);
-    textOutput.textContent = "You have selected: ";
+    humanText.textContent = "You have selected: ";
     humanChoice.textContent = e.target.textContent;
-    textOutput.appendChild(humanChoice);
+    humanText.appendChild(humanChoice);
 
     playRound(humanChoice.textContent);
 }
