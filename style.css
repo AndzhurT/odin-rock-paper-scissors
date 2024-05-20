@@ -6,6 +6,10 @@ html, body {
     padding: 0;
 }
 
+.text-output h2 { 
+    flex-shrink: 1;
+}
+
 body {
     display: flex;
     flex-direction: column;

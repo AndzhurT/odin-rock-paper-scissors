@@ -10,21 +10,9 @@ function getComputerChoice() {
     return choices[randomChoice];
 }
 
-let getHumanChoice = () => {
-    humanChoice = prompt("What would you choose? Rock, Paper or Scissors?");
-    humanChoice = capitalize(humanChoice);
+let playRound = (humanChoice, computerChoice = null) => {
+    computerChoice = getComputerChoice();
 
-    return humanChoice;
-}
-
-function capitalize(text) {
-    if (text) return text.slice(0, 1).toUpperCase() + text.slice(1).toLowerCase()
-    else {
-        return text
-    }
-}
-
-let playRound = (humanChoice, computerChoice) => {
     // tie
     console.log("You chose: " + humanChoice)
     console.log("Computer chose: " + computerChoice)
@@ -89,14 +77,21 @@ const textOutput = document.querySelector(".text");
 // buttons
 const buttons = document.querySelectorAll("button");
 
-buttons.forEach(button => {
-    button.addEventListener("click", getButtonTarget)
-})
-
+const humanChoice = document.createElement("span");
+humanChoice.setAttribute("style","color: #ff7d73;");
 
 function getButtonTarget(e) {
     console.log(e.target);
-    textOutput.textContent = "You have selected: " + e.target.textContent;
+    textOutput.textContent = "You have selected: ";
+    humanChoice.textContent = e.target.textContent;
+    textOutput.appendChild(humanChoice);
+
+    playRound(humanChoice.textContent);
 }
+
+
+buttons.forEach(button => {
+    button.addEventListener("click", getButtonTarget)
+})
 
 
