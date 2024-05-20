@@ -101,7 +101,6 @@ const buttons = document.querySelectorAll("button");
 
 
 function getButtonTarget(e) {
-    console.log(e.target);
     humanText.textContent = "You have selected: ";
     humanChoice.textContent = e.target.textContent;
     humanText.appendChild(humanChoice);
