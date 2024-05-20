@@ -1,6 +1,7 @@
 
 let humanScore = 0;
 let computerScore = 0;
+let currentRound = 0;
 
 // function declaration - global 
 function getComputerChoice() {
@@ -15,7 +16,7 @@ let playRound = (humanChoice, computerSelected) => {
     computerText.textContent = "Computer chose: ";
     computerChoice.textContent = computerSelected;
     computerText.appendChild(computerChoice);
-
+    
     if (humanChoice == computerSelected) {
         finalRoundText.textContent = "Oooo, we have a tie!";
     }
@@ -34,6 +35,9 @@ let playRound = (humanChoice, computerSelected) => {
         computerScore += 1;
     }
 
+    currentRound += 1;
+    currentRoundText.textContent = "Current Round: " + currentRound;
+    
     return;
 }
 
@@ -84,6 +88,9 @@ const humanScoreText = document.querySelector(".leftContainer");
 
 // computer score
 const computerScoreText = document.querySelector(".rightContainer");
+
+// current round system text
+const currentRoundText = document.querySelector(".currentRoundText");
 
 // final round text
 const finalRoundText = document.querySelector(".finalRoundText");
