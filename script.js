@@ -44,8 +44,8 @@ let playGame = () => {
 
     playRound(humanSelection, computerSelection);
 
-    console.log("Your score: " + humanScore);
-    console.log("Computer's score: " + computerScore);
+    humanScoreText.textContent = "Your score: " + humanScore;
+    computerScoreText.textContent = "Computer's score: " + computerScore;
 
     if (humanScore + computerScore == 5) {
         if (humanScore > computerScore) {
@@ -79,19 +79,25 @@ const computerText = document.querySelector(".computerText");
 const computerChoice = document.createElement("span");
 computerChoice.setAttribute("style","color: #ff7d73;");
 
+// human score 
+const humanScoreText = document.querySelector(".leftContainer");
+
+// computer score
+const computerScoreText = document.querySelector(".rightContainer");
+
 // final round text
 const finalRoundText = document.querySelector(".finalRoundText");
 
 // final game text / score
 const finalGameText = document.querySelector(".finalGameText");
 const finalGameScore = document.createElement("div");
+finalGameScore.setAttribute("style", "display: flex; align-items: center; flex-direction: column;")
 
 const finalHumanScore = document.createElement("p");
 const finalComputerScore = document.createElement("p");
 
 // buttons
 const buttons = document.querySelectorAll("button");
-
 
 
 function getButtonTarget(e) {

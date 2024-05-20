@@ -65,13 +65,10 @@ button {
     align-items: center;
     flex-direction: column;
     border: 2px solid black;
-    width: 50%;
+    width: 65%;
     height: 460px; /* 500px - 20px - 20px = 460px */
 }
 
-div {
-    margin: 10px;
-}
 
 .finalGameText {
     display: flex;
@@ -79,4 +76,29 @@ div {
     justify-content: center;
     align-items: center;
     gap: 40px;
+}
+
+.big-container {
+    display: flex;
+    width: 100%;
+}
+
+.mid-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: auto;
+}
+
+.leftContainer, 
+.rightContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #fcc7c3;
+    height: 338px;
+    padding: 5px;
+    flex-basis: 160px;
+    margin: 10px;
 }
