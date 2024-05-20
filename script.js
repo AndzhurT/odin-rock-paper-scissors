@@ -82,4 +82,21 @@ let playGame = () => {
 
 // create elements using JS
 
-// const container = 
+
+// text
+const textOutput = document.querySelector(".text");
+
+// buttons
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+    button.addEventListener("click", getButtonTarget)
+})
+
+
+function getButtonTarget(e) {
+    console.log(e.target);
+    textOutput.textContent = "You have selected: " + e.target.textContent;
+}
+
+

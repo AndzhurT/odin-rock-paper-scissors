@@ -57,6 +57,9 @@ button {
 }
 
 .container .text-output {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     border: 2px solid black;
     width: 50%;
     height: 460px; /* 500px - 20px - 20px = 460px */
